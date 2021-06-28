@@ -1,0 +1,20 @@
+{
+  "name": "digit-clasifier",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node index"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/tonesija/digit-clasifier.git"
+  },
+  "author": "Tonio Ercegović",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/tonesija/digit-clasifier/issues"
+  },
+  "homepage": "https://github.com/tonesija/digit-clasifier#readme"
+}
