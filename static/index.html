@@ -1,19 +1,63 @@
+<!DOCTYPE html>
+<html>
 <head>
-
+  <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+  <title>Digit clasifier</title>
+  <link rel="stylesheet" type="text/css" href="styles.css"/>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
 </head>
 
 <body>
-  <h1>Hello world!</h1>
+  <div id="sidebar">
+    <div class="colorButtons">
+      <h3>Colour</h3>
+      <input type="color" id="colorpicker" value="#c81464" class="colorpicker">
+    </div>
+    <div class="colorButtons">
+      <h3>Bg Color</h3>
+      <input type="color" value="#ffffff" id="bgcolorpicker" class="colorpicker">
+    </div>
+
+    <div class="toolsButtons">
+      <h3>Tools</h3>
+      <button id="eraser" class="btn btn-default"><span class="glyphicon glyphicon-erase" aria-hidden="true"></span></button>
+      <button id="clear" class="btn btn-danger"> <span class="glyphicon glyphicon-repeat" aria-hidden="true"></span></button>
+    </div>
+
+    <div class="buttonSize">
+      <h3>Size (<span id="showSize">5</span>)</h3>
+      <input type="range" min="1" max="50" value="5" step="1" id="controlSize">
+    </div>
+
+    <div class="canvasSize">
+      <h3>Canvas</h3>
+      <div class="input-group">
+        <span class="input-group-addon">X</span>
+        <input type="number" id="sizeX" class="form-control" placeholder="sizeX" value="400" class="size">
+      </div>
+      <div class="input-group">
+        <span class="input-group-addon">Y</span>
+        <input type="number" id="sizeY" class="form-control" placeholder="sizeY" value="400" class="size">
+      </div>
+      <input type="button" class="updateSize btn btn-success" value="Update" id="canvasUpdate">
+    </div>
+    <div class="actions">
+      <h3>Actions</h3>
+      <input type="button" value="Clasify!" class="btn btn-warning" id="send">
+    </div>
+    
+  </div>
+  <script src="drawing.js"></script>
 </body>
 
-<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
 
 <script>
   new Vue({
     el: "#app_basic",
     data: {
       message: "🐵 Hello World 🔮",
-      timestamp: `Timestamp ${new Date().toLocaleString()}`,
     },
   })
 </script>
+</html>
+
