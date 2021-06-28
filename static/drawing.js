@@ -73,15 +73,23 @@ function eraser() {
 
 // UPLOAD IMAGE
 function send() {
-  var dataURL = canvas.toDataURL('image/png')
-  const xhttp = new XMLHttpRequest()
-  xhttp.open('POST', 'clasify')
-  xhttp.setRequestHeader(
-    "Content-Type", "application/x-www-form-urlencoded")
-  xhttp.onreadystatechange = function() {
-    console.log(xhttp.responseText)
-  }
-  xhttp.send("file=" + dataURL)
+  var dataURL = canvas.toDataURL('image/jpeg')
+
+  let data = {data: dataURL}
+  fetch('clasify', {
+    method: 'POST', 
+    headers: {
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify(data),
+  })
+  .then(response => response.json())
+  .then(data => {
+    console.log('Success:', data);
+  })
+  .catch((error) => {
+    console.error('Error:', error);
+  });
 }
 
 // GET MOUSE POSITION
@@ -113,12 +121,10 @@ function mousemove(canvas, evt) {
     var currentPosition = getMousePos(canvas, evt);
     ctx.lineTo(currentPosition.x, currentPosition.y)
     ctx.stroke();
-    store(currentPosition.x, currentPosition.y, currentSize, currentColor);
   }
 }
 
 // ON MOUSE UP
 function mouseup() {
   isMouseDown=false
-  store()
 }
