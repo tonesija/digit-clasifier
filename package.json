@@ -16,5 +16,8 @@
   "bugs": {
     "url": "https://github.com/tonesija/digit-clasifier/issues"
   },
-  "homepage": "https://github.com/tonesija/digit-clasifier#readme"
+  "homepage": "https://github.com/tonesija/digit-clasifier#readme",
+  "dependencies": {
+    "express": "^4.17.1"
+  }
 }
