@@ -1,5 +1,4 @@
 // SETTING ALL VARIABLES
-
 var isMouseDown=false;
 var canvas = document.createElement('canvas');
 var body = document.getElementsByTagName("body")[0];
@@ -10,11 +9,9 @@ var currentColor = "rgb(200,20,100)";
 var currentBg = "white";
 
 // INITIAL LAUNCH
-
 createCanvas();
 
 // BUTTON EVENT HANDLERS
-
 document.getElementById('canvasUpdate').addEventListener('click', function() {
   createCanvas();
   redraw();
@@ -38,7 +35,6 @@ document.getElementById('clear').addEventListener('click', createCanvas);
 document.getElementById('send').addEventListener('click', send)
 
 // REDRAW 
-
 function redraw() {
     for (var i = 1; i < linesArray.length; i++) {
       ctx.beginPath();
@@ -52,13 +48,11 @@ function redraw() {
 }
 
 // DRAWING EVENT HANDLERS
-
 canvas.addEventListener('mousedown', function() {mousedown(canvas, event);});
 canvas.addEventListener('mousemove',function() {mousemove(canvas, event);});
 canvas.addEventListener('mouseup',mouseup);
 
 // CREATE CANVAS
-
 function createCanvas() {
   canvas.id = "canvas";
   canvas.width = parseInt(document.getElementById("sizeX").value);
@@ -72,7 +66,6 @@ function createCanvas() {
 }
 
 // ERASER HANDLING
-
 function eraser() {
   currentSize = 50;
   currentColor = ctx.fillStyle
@@ -83,15 +76,15 @@ function send() {
   var dataURL = canvas.toDataURL('image/png')
   const xhttp = new XMLHttpRequest()
   xhttp.open('POST', 'clasify')
-  xhttp.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+  xhttp.setRequestHeader(
+    "Content-Type", "application/x-www-form-urlencoded")
   xhttp.onreadystatechange = function() {
-    console.log(xhttp.responseText);
+    console.log(xhttp.responseText)
   }
-  xhttp.send("imgData=" + dataURL);
+  xhttp.send("file=" + dataURL)
 }
 
 // GET MOUSE POSITION
-
 function getMousePos(canvas, evt) {
   var rect = canvas.getBoundingClientRect();
   return {
@@ -101,7 +94,6 @@ function getMousePos(canvas, evt) {
 }
 
 // ON MOUSE DOWN
-
 function mousedown(canvas, evt) {
   var mousePos = getMousePos(canvas, evt);
   isMouseDown=true
@@ -115,7 +107,6 @@ function mousedown(canvas, evt) {
 }
 
 // ON MOUSE MOVE
-
 function mousemove(canvas, evt) {
 
   if(isMouseDown){
@@ -127,7 +118,6 @@ function mousemove(canvas, evt) {
 }
 
 // ON MOUSE UP
-
 function mouseup() {
   isMouseDown=false
   store()
