@@ -35,6 +35,7 @@ document.getElementById('controlSize').addEventListener('change', function() {
 
 document.getElementById('eraser').addEventListener('click', eraser);
 document.getElementById('clear').addEventListener('click', createCanvas);
+document.getElementById('send').addEventListener('click', send)
 
 // REDRAW 
 
@@ -75,6 +76,18 @@ function createCanvas() {
 function eraser() {
   currentSize = 50;
   currentColor = ctx.fillStyle
+}
+
+// UPLOAD IMAGE
+function send() {
+  var dataURL = canvas.toDataURL('image/png')
+  const xhttp = new XMLHttpRequest()
+  xhttp.open('POST', 'clasify')
+  xhttp.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+  xhttp.onreadystatechange = function() {
+    console.log(xhttp.responseText);
+  }
+  xhttp.send("imgData=" + dataURL);
 }
 
 // GET MOUSE POSITION
