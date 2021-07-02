@@ -111,7 +111,7 @@ public class MainUDP {
 				index = i;
 			}
 		}
-		return "Broj je "+index+" sa sigurnoscu "+max+".";
+		return String.format("Broj je %d sa sigurnoscu %.2f.", index, max);
 	}
 
 	private static RealVector createLabel(int i) {
