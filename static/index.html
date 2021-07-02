@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
   <title>Digit clasifier</title>
   <link rel="stylesheet" type="text/css" href="styles.css"/>
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
@@ -11,11 +10,11 @@
   <div id="sidebar">
     <div class="colorButtons">
       <h3>Colour</h3>
-      <input type="color" id="colorpicker" value="#c81464" class="colorpicker">
+      <input type="color" id="colorpicker" value="#ffffff" class="colorpicker">
     </div>
     <div class="colorButtons">
       <h3>Bg Color</h3>
-      <input type="color" value="#ffffff" id="bgcolorpicker" class="colorpicker">
+      <input type="color" value="#000000" id="bgcolorpicker" class="colorpicker">
     </div>
 
     <div class="toolsButtons">
@@ -25,8 +24,8 @@
     </div>
 
     <div class="buttonSize">
-      <h3>Size (<span id="showSize">5</span>)</h3>
-      <input type="range" min="1" max="50" value="5" step="1" id="controlSize">
+      <h3>Size (<span id="showSize">18</span>)</h3>
+      <input type="range" min="1" max="50" value="18" step="1" id="controlSize">
     </div>
 
     <div class="canvasSize">
@@ -45,19 +44,11 @@
       <h3>Actions</h3>
       <input type="button" value="Clasify!" class="btn btn-warning" id="send">
     </div>
-    
+    <h3 id="message"></h3>
   </div>
+
+  
   <script src="drawing.js"></script>
 </body>
-
-
-<script>
-  new Vue({
-    el: "#app_basic",
-    data: {
-      message: "🐵 Hello World 🔮",
-    },
-  })
-</script>
 </html>
 

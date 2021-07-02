@@ -4,9 +4,9 @@ var canvas = document.createElement('canvas');
 var body = document.getElementsByTagName("body")[0];
 var ctx = canvas.getContext('2d');
 var linesArray = [];
-currentSize = 5;
-var currentColor = "rgb(200,20,100)";
-var currentBg = "white";
+currentSize = 18;
+var currentColor = "rgb(255,255,255)";
+var currentBg = "black";
 
 // INITIAL LAUNCH
 createCanvas();
@@ -85,7 +85,8 @@ function send() {
   })
   .then(response => response.json())
   .then(data => {
-    console.log('Success:', data);
+    console.log('Success:', data)
+    document.getElementById('message').innerHTML = data.msg
   })
   .catch((error) => {
     console.error('Error:', error);
