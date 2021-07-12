@@ -4,7 +4,7 @@ and a neural network written in Java that builds into a jar file which uses UDP 
 
 ## Neural network
 This clasifier uses a standard sigmoid neural network that uses backpropagation as a learning mechanism. I have gotten
-best results with 784,128,128,128,10 layout which achieved 96% accuracy (verification set) at 36 epoch.
+best results with 784,128,128,128,10 layout which achieved 96% accuracy (verification set) at 36 epoch. ETA was 0.05.
 
 ## Training the network.
 1. Create *slike* folder.
